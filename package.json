@@ -5,5 +5,8 @@
   "main": "\t",
   "repository": "https://github.com/dbalatero/cypress-plugin-stripe-elements",
   "author": "David Balatero",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  }
 }
