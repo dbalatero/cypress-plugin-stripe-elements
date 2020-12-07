@@ -2,11 +2,16 @@
   "name": "cypress-plugin-stripe-elements",
   "version": "1.0.0",
   "description": "Adds testing helpers for driving Stripe Elements with Cypress.",
-  "main": "\t",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/dbalatero/cypress-plugin-stripe-elements",
   "author": "David Balatero",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "tsc"
   }
 }
