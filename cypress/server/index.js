@@ -70,6 +70,10 @@ app.get('/', function (req, res) {
             <div id="card-element">
               <!-- A Stripe Element will be inserted here. -->
             </div>
+
+            <button id="pay-button">Pay</button>
+
+            <pre id="result-area"></pre>
           </div>
         </form>
 
@@ -103,6 +107,15 @@ app.get('/', function (req, res) {
 
         // Add an instance of the card Element into the card-element <div>.
         card.mount('#card-element');
+
+        var button = document.getElementById('pay-button');
+        button.addEventListener('click', function() {
+          button.disabled = true;
+
+          stripe.createToken(card).then(function(result) {
+            document.getElementById('result-area').innerText = "Token: " + result.token.id;
+          });
+        });
         </script>
       </body>
     </html>
