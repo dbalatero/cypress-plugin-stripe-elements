@@ -7,6 +7,7 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - checkout
+      - node/install
       - node/install-yarn
       - node/install-packages:
           pkg-manager: yarn
