@@ -1,5 +1,6 @@
 version: 2.1
 orbs:
+  cypress: cypress-io/cypress@1
   node: circleci/node@4.1.0
 jobs:
   test:
@@ -14,9 +15,7 @@ jobs:
       - run:
           command: yarn build
           name: TypeScript build
-      - run:
-          command: yarn test
-          name: Run YARN tests
+      - cypress/run
 workflows:
   node-tests:
     jobs:
