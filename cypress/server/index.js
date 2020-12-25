@@ -2,12 +2,12 @@ const express = require('express')
 const app = express()
 
 const options = {
-  appPort: process.env.TEST_APP_PORT,
+  appPort: process.env.CYPRESS_TEST_APP_PORT,
   publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
 };
 
 if (!options.appPort) {
-  throw new Error("Please set TEST_APP_PORT=4000");
+  throw new Error("Please set CYPRESS_TEST_APP_PORT=4000");
 }
 
 if (!options.publishableKey) {

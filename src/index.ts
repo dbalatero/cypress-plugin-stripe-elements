@@ -1,24 +1,26 @@
-type CypressStripeElementsFieldName = 'cardNumber' | 'expiry' | 'cvv' | 'postalCode';
+// All Stripe Elements fields have a `data-elements-stable-field-name`
+// attribute that can be used to target it.
+//
+// This type is meant to hint you about the basic card input fields you can fill.
+//
+// In case we haven't added a stable field name to this list, you can always
+// fallback to passing a `string`.
+type CypressStripeElementsFieldName = 'cardCvc' | 'cardNumber' | 'cardExpiry' | 'postalCode' | string;
 
-const getSelectorForField = (field: CypressStripeElementsFieldName): null | string => {
-  switch (field) {
-    case 'cardNumber':
-      return 'input[autocomplete="cc-number"]';
-    case 'expiry':
-      return 'input[autocomplete="cc-exp"]'
-    case 'cvv':
-      return 'input[autocomplete="cc-csc"]'
-    case 'postalCode':
-      return 'input[autocomplete="postal-code"]'
-    default:
-      return null;
-  }
+const getSelectorForField = (name: CypressStripeElementsFieldName): string => {
+  return `input[data-elements-stable-field-name="${name}"]`;
 }
 
 Cypress.Commands.add('fillElementsInput', (field: CypressStripeElementsFieldName, value: string): void => {
-  const selector = getSelectorForField(field);
+  if (Cypress.config('chromeWebSecurity')) {
+    throw new Error(
+      "You must set `{ \"chromeWebSecurity\": false }` in `cypress.json`, " +
+      "or cypress-plugin-stripe-elements cannot access the Stripe Elements " +
+      "<iframe> to perform autofill."
+    );
+  }
 
-  if (!selector) throw new Error(`Bad field value: ${field}`);
+  const selector = getSelectorForField(field);
 
   cy
     .get('iframe')
