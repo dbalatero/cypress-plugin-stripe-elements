@@ -4,11 +4,11 @@ orbs:
 jobs:
   test:
     docker:
-      - image: 'cimg/base:stable'
+      - image: cypress/base:10
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
     steps:
-      - run:
-          command: sudo apt-get install xvfb
-          name: Install XVFB
       - checkout
       - node/install
       - node/install-yarn
