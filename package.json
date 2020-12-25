@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "test": "cypress run"
   }
 }
