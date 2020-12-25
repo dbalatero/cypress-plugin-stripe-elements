@@ -11,7 +11,10 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          command: yarn run test
+          command: yarn build
+          name: TypeScript build
+      - run:
+          command: yarn test
           name: Run YARN tests
 workflows:
   node-tests:
