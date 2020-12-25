@@ -1,12 +1,14 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
   node: circleci/node@4.1.0
 jobs:
   test:
     docker:
       - image: 'cimg/base:stable'
     steps:
+      - run:
+          command: sudo apt-get install xvfb
+          name: Install XVFB
       - checkout
       - node/install
       - node/install-yarn
@@ -15,7 +17,9 @@ jobs:
       - run:
           command: yarn build
           name: TypeScript build
-      - cypress/run
+      - run:
+          command: yarn test
+          name: Run tests
 workflows:
   node-tests:
     jobs:
