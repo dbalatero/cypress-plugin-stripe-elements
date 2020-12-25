@@ -12,14 +12,27 @@ jobs:
       - checkout
       - node/install
       - node/install-yarn
+      - restore_cache:
+          keys:
+            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ .Branch }}
+            - v1-deps
       - node/install-packages:
           pkg-manager: yarn
+      - save_cache:
+          key: v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache  ## cache both yarn and Cypress!
       - run:
           command: yarn build
           name: TypeScript build
       - run:
           command: yarn test
           name: Run tests
+      - store_artifacts:
+          path: cypress/screenshots
+      - store_artifacts:
+          path: cypress/videos
 workflows:
   node-tests:
     jobs:
