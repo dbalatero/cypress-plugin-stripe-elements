@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --browser chrome",
     "prepublish": "tsc",
     "start": "node cypress/server/index.js",
     "test": "start-server-and-test start http://localhost:$CYPRESS_TEST_APP_PORT cy:run"
