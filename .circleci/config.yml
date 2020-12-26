@@ -10,6 +10,7 @@ workflows:
     jobs:
       - cypress/run:
           yarn: true
+          executor: with-chrome
           browser: chrome
           start: npm start
           wait-on: 'http://localhost:$CYPRESS_TEST_APP_PORT'
