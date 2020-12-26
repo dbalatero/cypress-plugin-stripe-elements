@@ -27,7 +27,7 @@ jobs:
           command: yarn build
           name: TypeScript build
       - run:
-          command: yarn test
+          command: DEBUG=cypress* yarn test
           name: Run tests
       - store_artifacts:
           path: cypress/screenshots
