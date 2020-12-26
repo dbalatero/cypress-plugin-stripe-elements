@@ -9,6 +9,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          record: false
           yarn: true
           executor: with-chrome
           browser: chrome
