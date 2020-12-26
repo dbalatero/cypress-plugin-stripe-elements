@@ -4,6 +4,7 @@
   "description": "Adds testing helpers for driving Stripe Elements with Cypress.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": ["dist/**/*", "LICENSE", "README.md", "package.json", "yarn.lock"],
   "repository": "https://github.com/dbalatero/cypress-plugin-stripe-elements",
   "author": "David Balatero",
   "license": "MIT",
