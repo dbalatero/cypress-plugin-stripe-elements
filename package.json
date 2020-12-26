@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "Adds testing helpers for driving Stripe Elements with Cypress.",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": ["dist/**/*", "LICENSE", "README.md", "package.json", "yarn.lock"],
+  "types": ["index.d.ts"],
+  "files": ["dist", "index.d.ts"],
   "repository": "https://github.com/dbalatero/cypress-plugin-stripe-elements",
   "author": "David Balatero",
   "license": "MIT",
+  "keywords": [
+    "cypress",
+    "stripe",
+    "elements",
+    "testing",
+    "payments"
+  ],
   "devDependencies": {
     "cypress": "^6.0.1",
     "express": "^4.17.1",
@@ -15,9 +22,9 @@
     "typescript": "^4.1.2"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cat dist/index.d.ts src/index.d.ts > dist/index.d.ts",
     "cy:run": "cypress run --browser chrome --headless",
-    "prepublish": "tsc",
+    "prepublish": "yarn build",
     "start": "node cypress/server/index.js",
     "test": "start-server-and-test start http://localhost:$CYPRESS_TEST_APP_PORT cy:run"
   }

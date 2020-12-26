@@ -1,11 +1,4 @@
-// All Stripe Elements fields have a `data-elements-stable-field-name`
-// attribute that can be used to target it.
-//
-// This type is meant to hint you about the basic card input fields you can fill.
-//
-// In case we haven't added a stable field name to this list, you can always
-// fallback to passing a `string`.
-export type CypressStripeElementsFieldName = 'cardCvc' | 'cardNumber' | 'cardExpiry' | 'postalCode' | string;
+import { CypressStripeElementsFieldName } from 'cypress-plugin-stripe-elements';
 
 const getSelectorForField = (name: CypressStripeElementsFieldName): string => {
   return `input[data-elements-stable-field-name="${name}"]`;
