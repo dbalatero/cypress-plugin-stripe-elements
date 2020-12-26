@@ -1,14 +1,16 @@
 version: 2.1
 orbs:
+  browser-tools: circleci/browser-tools@1.1.0
   node: circleci/node@4.1.0
 jobs:
   test:
     docker:
-      - image: cypress/base:10
+      - image: cimg/node:15.5.0-browsers
         environment:
           ## this enables colors in the output
           TERM: xterm
     steps:
+      - browser-tools/install-browser-tools
       - checkout
       - node/install
       - node/install-yarn
