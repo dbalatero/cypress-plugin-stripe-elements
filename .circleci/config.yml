@@ -1,10 +1,15 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.26.0
+executors:
+  with-chrome:
+    docker:
+      - image: 'cypress/browsers-chrome78-ff70'
 workflows:
   build:
     jobs:
       - cypress/run:
           yarn: true
+          browser: chrome
           start: npm start
           wait-on: 'http://localhost:$CYPRESS_TEST_APP_PORT'
