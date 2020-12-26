@@ -14,6 +14,26 @@ yarn add --dev cypress-plugin-stripe-elements
 Set `{ "chromeWebSecurity": false }` in your `cypress.json` file, or the plugin
 will not work.
 
+Import the plugin in your `cypress/support/index.js` file:
+
+```es6
+// cypress/support/index.js
+
+import 'cypress-plugin-stripe-elements';
+```
+
+### TypeScript
+
+Make sure to include the following `types` in your `tsconfig.json` file:
+
+```json 
+{
+  "compilerOptions": {
+    "types": ["cypress", "cypress-plugin-stripe-elements"]
+  }
+}
+```
+
 ## Usage
 
 This package provides a `cy.fillElementsInput(name, value)` command.
