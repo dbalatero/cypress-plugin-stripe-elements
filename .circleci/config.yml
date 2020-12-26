@@ -1,42 +1,7 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.1.0
-  node: circleci/node@4.1.0
-jobs:
-  test:
-    docker:
-      - image: cimg/node:15.5.0-browsers
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    steps:
-      - browser-tools/install-browser-tools
-      - checkout
-      - node/install
-      - node/install-yarn
-      - restore_cache:
-          keys:
-            - v2-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
-      - run:
-          command: yarn install --frozen-lockfile
-          name: yarn install
-      - save_cache:
-          key: v2-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache  ## cache both yarn and Cypress!
-      - run:
-          command: yarn build
-          name: TypeScript build
-      - run:
-          command: yarn test
-          name: Run tests
-      - store_artifacts:
-          path: cypress/screenshots
-      - store_artifacts:
-          path: cypress/videos
+  cypress: cypress-io/cypress@1.26.0
 workflows:
-  node-tests:
+  build:
     jobs:
-      - test
+      - cypress/run
