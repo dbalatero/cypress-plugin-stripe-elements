@@ -10,10 +10,14 @@
   "devDependencies": {
     "cypress": "^6.0.1",
     "express": "^4.17.1",
+    "start-server-and-test": "^1.11.6",
     "typescript": "^4.1.2"
   },
   "scripts": {
     "build": "tsc",
-    "prepublish": "tsc"
+    "cy:run": "cypress run --browser chrome --headless",
+    "prepublish": "tsc",
+    "start": "node cypress/server/index.js",
+    "test": "start-server-and-test start http://localhost:$CYPRESS_TEST_APP_PORT cy:run"
   }
 }

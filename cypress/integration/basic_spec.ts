@@ -1,3 +1,4 @@
+/// <reference path="../support/index.d.ts" />
 import '../../src/index';
 
 // Loaded from CYPRESS_TEST_APP_PORT environment variable.

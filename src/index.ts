@@ -5,7 +5,7 @@
 //
 // In case we haven't added a stable field name to this list, you can always
 // fallback to passing a `string`.
-type CypressStripeElementsFieldName = 'cardCvc' | 'cardNumber' | 'cardExpiry' | 'postalCode' | string;
+export type CypressStripeElementsFieldName = 'cardCvc' | 'cardNumber' | 'cardExpiry' | 'postalCode' | string;
 
 const getSelectorForField = (name: CypressStripeElementsFieldName): string => {
   return `input[data-elements-stable-field-name="${name}"]`;
