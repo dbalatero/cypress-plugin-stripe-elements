@@ -1,3 +1,5 @@
 node_modules
 /dist
 .envrc
+/cypress/screenshots
+/cypress/videos
