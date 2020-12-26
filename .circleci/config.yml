@@ -8,6 +8,8 @@ executors:
 workflows:
   build:
     jobs:
+      - cypress/install:
+          build: yarn build
       - cypress/run:
           record: false
           yarn: true
