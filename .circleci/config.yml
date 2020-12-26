@@ -4,7 +4,7 @@ orbs:
 executors:
   with-chrome:
     docker:
-      - image: 'cypress/browsers-chrome78-ff70'
+      - image: 'cypress/browsers:node12.6.0-chrome77'
 workflows:
   build:
     jobs:
