@@ -22,9 +22,9 @@
     "typescript": "^4.1.2"
   },
   "scripts": {
-    "build": "tsc && cat dist/index.d.ts src/index.d.ts > dist/index.d.ts",
+    "build": "tsc",
     "cy:run": "cypress run --browser chrome --headless",
-    "prepublish": "yarn build",
+    "prepublish": "yarn test && yarn build",
     "start": "node cypress/server/index.js",
     "test": "start-server-and-test start http://localhost:$CYPRESS_TEST_APP_PORT cy:run"
   }
