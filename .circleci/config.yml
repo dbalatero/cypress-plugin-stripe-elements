@@ -30,7 +30,7 @@ jobs:
           command: yarn build
           name: TypeScript build
       - run:
-          command: DEBUG=cypress* yarn test
+          command: yarn test
           name: Run tests
       - store_artifacts:
           path: cypress/screenshots
