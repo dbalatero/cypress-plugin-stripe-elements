@@ -3,6 +3,10 @@
 This plugin provides a `fillElementsInput` that makes it easy to fill out
 Stripe Elements inputs without `cy.wait()` hacks or anything else.
 
+```es6
+cy.fillElementsInput('cardNumber', '4242424242424242');
+```
+
 ## Installation
 
 ```
