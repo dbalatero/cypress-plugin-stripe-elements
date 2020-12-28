@@ -1,0 +1,27 @@
+name: End-to-end tests
+on: [push]
+jobs:
+  cypress-run:
+    environment: ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          start: yarn start
+          wait-on: http://localhost:4000
+        env:
+          CYPRESS_TEST_APP_PORT: 4000
+          STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+      - name: Archive screenshot and video results
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-results
+          path: |
+            cypress/screenshots
+            cypress/videos

@@ -1,5 +1,7 @@
 # cypress-plugin-stripe-elements
 
+<img src="https://github.com/dbalatero/cypress-plugin-stripe-elements/workflows/End-to-end%20tests/badge.svg" />
+
 This plugin provides a `fillElementsInput` that makes it easy to fill out
 Stripe Elements inputs without `cy.wait()` hacks or anything else.
 
