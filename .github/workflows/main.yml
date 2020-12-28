@@ -2,6 +2,7 @@ name: End-to-end tests
 on: [push]
 jobs:
   cypress-run:
+    environment: ci
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
