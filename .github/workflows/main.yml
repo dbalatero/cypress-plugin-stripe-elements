@@ -9,3 +9,6 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v1
+        env:
+          CYPRESS_TEST_APP_PORT: 4000
+          STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
