@@ -12,7 +12,7 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           start: yarn start
-          wait-on: http://localhost:$CYPRESS_TEST_APP_PORT
+          wait-on: http://localhost:4000
         env:
           CYPRESS_TEST_APP_PORT: 4000
           STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
