@@ -16,3 +16,12 @@ jobs:
         env:
           CYPRESS_TEST_APP_PORT: 4000
           STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+      - name: Archive screenshot and video results
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-results
+          path: |
+            cypress/screenshots
+            cypress/videos
