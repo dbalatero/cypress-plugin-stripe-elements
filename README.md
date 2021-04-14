@@ -82,4 +82,8 @@ describe('payment form', () => {
 ## Development
 
 To modify this plugin, `git clone` the repo and run `yarn install`. You can run
-the tests with `yarn test`.
+the tests with `yarn test` after setting the environment variables `CYPRESS_TEST_APP_PORT` and `STRIPE_PUBLISHABLE_KEY`:
+
+```
+CYPRESS_TEST_APP_PORT=4000 STRIPE_PUBLISHABLE_KEY=your_key_here yarn test
+```
