@@ -20,6 +20,14 @@ Cypress.Commands.add('fillElementsInput', (field: CypressStripeElementsFieldName
     .should(iframe => expect(iframe.contents().find(selector)).to.exist)
     .then(iframe => cy.wrap(iframe.contents().find(selector)))
     .within(input => {
-      cy.wrap(input).type(value);
+      /**
+       * The .should("not.be.disabled") check implements a Cypress-team-recommended
+       * workaround for cases where the iframe isn't completely loaded,
+       * so Cypress fails on the type() command because the input is
+       * temporarily disabled.
+       * 
+       * See https://github.com/cypress-io/cypress/issues/5827#issuecomment-751995883
+       */
+      cy.wrap(input).should("not.be.disabled").type(value);
     });
 })
