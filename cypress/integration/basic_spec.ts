@@ -24,5 +24,26 @@ describe('stripe elements', () => {
 
       expect(text).to.match(/Token: tok_\w+/);
     });
-  })
+  });
+
+  it('allows setting the field value twice', () => {
+    cy.visit(`http://localhost:${appPort}`)
+
+    cy.get('#card-element').within(() => {
+      cy.fillElementsInput('cardNumber', '424');
+      cy.fillElementsInput('cardNumber', '4242424242424242');
+      cy.fillElementsInput('cardExpiry', '1025');
+      cy.fillElementsInput('cardCvc', '123');
+      cy.fillElementsInput('postalCode', '90210');
+    });
+
+    // Click Pay
+    cy.get('#pay-button').click();
+
+    cy.get('#result-area').should(($div) => {
+      const text = $div.text();
+
+      expect(text).to.match(/Token: tok_\w+/);
+    });
+  });
 })
