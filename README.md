@@ -1,6 +1,11 @@
 # cypress-plugin-stripe-elements
 
-<img src="https://github.com/dbalatero/cypress-plugin-stripe-elements/workflows/End-to-end%20tests/badge.svg" />
+<img src="assets/cover.jpg" />
+<p align="center" style="align: center;">
+  <img src="https://github.com/dbalatero/cypress-plugin-stripe-elements/workflows/End-to-end%20tests/badge.svg" /> 
+
+  <img src="https://img.shields.io/github/stars/dbalatero/cypress-plugin-stripe-elements" alt="Github Stars" />
+</p>
 
 This plugin provides a `fillElementsInput` that makes it easy to fill out
 Stripe Elements inputs without `cy.wait()` hacks or anything else.
@@ -87,3 +92,8 @@ the tests with `yarn test` after setting the environment variables `CYPRESS_TEST
 ```
 CYPRESS_TEST_APP_PORT=4000 STRIPE_PUBLISHABLE_KEY=your_key_here yarn test
 ```
+
+## Examples
+
+- [Local Demo from this repository](https://github.com/dbalatero/cypress-plugin-stripe-elements/blob/master/cypress/integration/basic_spec.ts
+- [Stripe Payments Demo - stripe official demo project](https://github.com/riccardogiorato/cypress-for-everything/blob/main/examples/stripe/cypress/integration/stripe-elements.ts)
