@@ -91,3 +91,8 @@ the tests with `yarn test` after setting the environment variables `CYPRESS_TEST
 ```
 CYPRESS_TEST_APP_PORT=4000 STRIPE_PUBLISHABLE_KEY=your_key_here yarn test
 ```
+
+## Examples
+
+- [Local Demo from this repository](https://github.com/dbalatero/cypress-plugin-stripe-elements/blob/master/cypress/integration/basic_spec.ts
+- [Stripe Payments Demo - stripe official demo project](https://github.com/riccardogiorato/cypress-for-everything/blob/main/examples/stripe/cypress/integration/stripe-elements.ts)
