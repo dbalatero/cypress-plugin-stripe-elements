@@ -2,9 +2,7 @@
 
 <img src="assets/cover.jpg" />
 
-<img src="https://github.com/dbalatero/cypress-plugin-stripe-elements/workflows/End-to-end%20tests/badge.svg" />
-
-<img src="https://img.shields.io/github/stars/dbalatero/cypress-plugin-stripe-elements" alt="Github Stars" />
+<img src="https://github.com/dbalatero/cypress-plugin-stripe-elements/workflows/End-to-end%20tests/badge.svg" /> <img src="https://img.shields.io/github/stars/dbalatero/cypress-plugin-stripe-elements" alt="Github Stars" />
 
 This plugin provides a `fillElementsInput` that makes it easy to fill out
 Stripe Elements inputs without `cy.wait()` hacks or anything else.
