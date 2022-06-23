@@ -34,7 +34,7 @@ Import the plugin in your `cypress/support/commands.js` file:
 import 'cypress-plugin-stripe-elements';
 ```
 
-In older versions of cypress (<10) import in this file
+In older versions of cypress (<10) place the import in `cypress/support/index.js`
 
 ```es6
 // cypress/support/index.js
