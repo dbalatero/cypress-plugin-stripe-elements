@@ -25,7 +25,16 @@ yarn add --dev cypress-plugin-stripe-elements
 Set `{ "chromeWebSecurity": false }` in your `cypress.json` file, or the plugin
 will not work.
 
-Import the plugin in your `cypress/support/index.js` file:
+Import the plugin in your `cypress/support/commands.js` file:
+
+
+```es6
+// cypress/support/commands.js
+
+import 'cypress-plugin-stripe-elements';
+```
+
+In older versions of cypress (<10) place the import in `cypress/support/index.js`
 
 ```es6
 // cypress/support/index.js
