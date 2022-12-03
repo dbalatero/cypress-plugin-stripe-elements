@@ -23,7 +23,7 @@ yarn add --dev cypress-plugin-stripe-elements
 ```
 
 Set `{ "chromeWebSecurity": false }` in your `cypress.json` file, or the plugin
-will not work.
+will not work. If Cypress is running, you will have to restart.
 
 Import the plugin in your `cypress/support/index.js` file:
 
@@ -71,7 +71,7 @@ describe('payment form', () => {
     // in case you have multiple Stripe Elements on the page.
     cy.get('#card-element').within(() => {
       cy.fillElementsInput('cardNumber', '4242424242424242');
-      cy.fillElementsInput('cardExpiry', '1025'); // MMYY
+      cy.fillElementsInput("cardExpiry", "12" + (new Date().getFullYear() + 1).toString().substring(2,4)); // MMYY
       cy.fillElementsInput('cardCvc', '123');
       cy.fillElementsInput('postalCode', '90210');
     });
